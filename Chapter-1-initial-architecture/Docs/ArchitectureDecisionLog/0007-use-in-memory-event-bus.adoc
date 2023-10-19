@@ -4,7 +4,7 @@ Date: 2023-04-15
 
 == Problem
 
-Our project is in its early stages and is currently deployed as a single deployment unit. We need a way for components to communicate and interact with each other without tight coupling, while also ensuring high maintability. We want to focus on the bussiness process and interactions not spending time to choose out of process message broker. We can delay this decison in time.
+Our project is in its early stages and is currently deployed as a single deployment unit. We need a way for components to communicate and interact with each other without tight coupling, while also ensuring high maintainability. We want to focus on the bussiness process and interactions not spending time to choose out of process message broker. We can delay this decison in time.
 
 == Decision
 

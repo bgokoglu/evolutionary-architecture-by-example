@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+//using Repositories;
 
 internal static class DatabaseModule
 {
@@ -12,7 +13,10 @@ internal static class DatabaseModule
     internal static IServiceCollection AddDatabase(this IServiceCollection services, IConfiguration configuration)
     {
         var connectionString = configuration.GetConnectionString(ConnectionStringName);
-        services.AddDbContext<PassesPersistence>(options => options.UseNpgsql(connectionString));
+        services.AddDbContextFactory<PassesPersistence>(options => options.UseNpgsql(connectionString));
+        services.AddDbContext<PassesPersistence>(options => options.UseNpgsql(connectionString),
+            optionsLifetime: ServiceLifetime.Singleton);
+        //services.AddRepositories();
 
         return services;
     }
