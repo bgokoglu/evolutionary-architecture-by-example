@@ -2,6 +2,8 @@ version: '3.9'
 
 services:
   web:
+    container_name: fitnet_app.ch2
+    image: src_web:ch2
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
     build: .
@@ -13,7 +15,7 @@ services:
 
   postgres:
     image: postgres:14.3
-    container_name: postgres
+    container_name: fitnet_postgres.ch2
     ports:
       - 5432:5432
     environment:
