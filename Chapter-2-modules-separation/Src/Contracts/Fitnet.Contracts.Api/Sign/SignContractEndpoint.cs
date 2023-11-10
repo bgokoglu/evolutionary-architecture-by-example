@@ -5,6 +5,7 @@ using Common.Api.Validation.Requests;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Routing;
+using Microsoft.OpenApi.Models;
 
 internal static class SignContractEndpoint
 {
@@ -18,8 +19,8 @@ internal static class SignContractEndpoint
 
             return Results.NoContent();
         })
-        .ValidateRequest<SignContractRequestValidator>()
-        .WithOpenApi(operation => new(operation)
+        .ValidateRequest<SignContractRequest>()
+        .WithOpenApi(operation => new OpenApiOperation(operation)
         {
             Summary = "Signs prepared contract",
             Description =
